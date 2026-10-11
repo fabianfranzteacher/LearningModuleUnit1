@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning modules – English 7e</title>
+<style>
+:root{
+  --bg:#f4f6f9; --card:#ffffff; --ink:#1b2733; --muted:#5b6b7b;
+  --line:#d5dee7; --brand:#1f4e79; --brand-soft:#e7eff7;
+  --ok:#1e7a46; --ok-bg:#e6f4ec; --no:#a32020; --no-bg:#fbeaea;
+  --focus:#ff8c00;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.5;font-size:17px}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 60px}
+header.top{background:var(--brand);color:#fff;border-radius:14px;padding:16px 18px;margin-bottom:14px}
+header.top h1{margin:0 0 4px;font-size:1.25rem}
+header.top p{margin:0;opacity:.9;font-size:.92rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+h2{font-size:1.05rem;margin:0 0 10px}
+p.lead{color:var(--muted);margin:0 0 14px}
+label{display:block;font-weight:600;margin-bottom:6px}
+input[type=text]{width:100%;padding:12px 14px;font-size:1rem;border:2px solid var(--line);
+  border-radius:10px;background:#fff;color:var(--ink);font-family:inherit}
+input[type=text]:focus,button:focus,.opt:focus{outline:3px solid var(--focus);outline-offset:2px}
+button{font-family:inherit;font-size:1rem;padding:12px 18px;border-radius:10px;border:2px solid var(--brand);
+  background:var(--brand);color:#fff;cursor:pointer;font-weight:600}
+button.ghost{background:#fff;color:var(--brand)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.bar{height:10px;background:var(--brand-soft);border-radius:99px;overflow:hidden;margin:6px 0 14px}
+.bar>i{display:block;height:100%;background:var(--brand);width:0%}
+.meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:2px}
+.prompt{font-size:1.3rem;font-weight:700;margin:6px 0 4px}
+.sub{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:block;width:100%;text-align:left;padding:13px 15px;border:2px solid var(--line);
+  border-radius:10px;background:#fff;color:var(--ink);cursor:pointer;font-size:1rem;font-family:inherit;font-weight:500}
+.opt:hover{border-color:var(--brand)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.wrong{border-color:var(--no);background:var(--no-bg)}
+.fb{margin-top:12px;padding:11px 14px;border-radius:10px;font-size:.95rem}
+.fb.ok{background:var(--ok-bg);border:1px solid var(--ok);color:var(--ok)}
+.fb.no{background:var(--no-bg);border:1px solid var(--no);color:var(--no)}
+.help{margin-top:10px;background:#fffdf2;border:1px dashed #c9ab5a;border-radius:10px;padding:11px 14px;font-size:.92rem}
+.flash{border:2px solid var(--line);border-radius:14px;padding:26px 18px;text-align:center;background:#fff;min-height:130px;
+  display:flex;flex-direction:column;justify-content:center;gap:8px;cursor:pointer}
+.flash .f{font-size:1.35rem;font-weight:700}
+.flash .b{font-size:1.1rem;color:var(--brand)}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--brand-soft);color:var(--brand);border-radius:99px;padding:3px 9px;font-weight:700;margin-bottom:8px}
+.tag.plus{background:#fdf0e3;color:#9a5b12}
+.code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:1.5rem;font-weight:700;letter-spacing:.08em;
+  background:var(--brand-soft);border:2px dashed var(--brand);border-radius:12px;padding:16px;text-align:center;color:var(--brand);
+  word-break:break-all}
+.switchrow{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:.95rem;color:var(--muted)}
+.switchrow input{width:20px;height:20px}
+.hide{display:none}
+ul.tips{margin:8px 0 0 18px;padding:0}
+ul.tips li{margin-bottom:5px}
+footer.note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:20px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:480px){body{font-size:16px}.prompt{font-size:1.15rem}.code{font-size:1.15rem}}
+
+/* ---- home screen ---- */
+h2.sectiontitle{font-size:1.05rem;margin:18px 2px 10px}
+a.modcard{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:16px 18px;margin-bottom:10px;cursor:pointer;width:100%;text-align:left;border-width:1px}
+a.modcard:hover,button.modcard:hover{border-color:var(--brand)}
+button.modcard{font-family:inherit;background:var(--card);border:1px solid var(--line);color:inherit}
+.modcard .nr{display:inline-block;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--brand-soft);color:var(--brand);border-radius:99px;padding:3px 9px;font-weight:700;margin-bottom:6px}
+.modcard .t{font-weight:700;font-size:1.05rem;margin:0 0 2px}
+.modcard .d{color:var(--muted);font-size:.92rem;margin:0}
+.kacard{background:linear-gradient(135deg,#fff8ec,#fff);border:2px solid #e0a94a}
+.kacard .nr{background:#fdf0e3;color:#9a5b12}
+.kacard .dots{margin-top:4px;font-size:.85rem}
+
+/* ---- top nav ---- */
+#topnav{max-width:760px;margin:0 auto;padding:0 14px}
+#topnav a{display:inline-block;color:var(--brand);text-decoration:none;font-weight:600;font-size:.92rem;margin-bottom:8px}
+#topnav a:focus{outline:3px solid var(--focus);outline-offset:2px}
+
+.backlink{color:var(--brand);text-decoration:none;font-weight:600}
+.backlink.small{font-size:.82rem;margin-left:auto}
+.backlink:focus{outline:3px solid var(--focus);outline-offset:2px}
+
+/* ---- KA prep: tier picker ---- */
+.tierpick{display:grid;gap:12px;margin-top:14px}
+.tiercard{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:2px;
+  padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;
+  font-family:inherit;color:var(--ink)}
+.tiercard:hover{transform:translateY(-1px)}
+.tiercard:focus{outline:3px solid var(--focus);outline-offset:2px}
+.tiericon{font-size:1.3rem}
+.tiername{font-weight:700;font-size:1.02rem;color:var(--ink)}
+.tierdesc{color:var(--muted);font-size:.88rem}
+.tier-basis{border-color:var(--ok);background:var(--ok-bg)}
+.tier-standard{border-color:#b8860b;background:#fff7e0}
+.tier-plus{border-color:#c9711a;background:#fdf0e3}
+
+/* ---- KA prep: in-task bar ---- */
+.kabar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 2px 8px;font-size:.85rem}
+.kabar-tier{font-weight:700}
+.kabar-sec{color:var(--muted)}
+
+/* ---- KA prep: letter ---- */
+textarea{width:100%;padding:12px 14px;font-size:1rem;border:2px solid var(--line);border-radius:10px;
+  background:#fff;color:var(--ink);font-family:inherit;resize:vertical;line-height:1.5}
+textarea:focus{outline:3px solid var(--focus);outline-offset:2px}
+.modelbox{background:var(--brand-soft);border-radius:10px;padding:14px 16px;line-height:1.6;white-space:pre-line}
+ul.checklist{list-style:none;margin:0;padding:0}
+ul.checklist li{margin-bottom:7px}
+.mistake{border-top:1px solid var(--line);padding:10px 0}
+.mistake:first-child{border-top:none;padding-top:0}
+.mwrong{color:var(--no);font-weight:600}
+.mright{color:var(--ok);font-weight:600}
+.mnote{color:var(--muted);font-size:.9rem;margin-top:2px}
+.mref{color:var(--brand);font-weight:600}
+
+/* ---- KA prep: reading ---- */
+.readtext{line-height:1.65;white-space:pre-line;margin:8px 0 4px}
+
+/* ---- multi-gap sentences ---- */
+input.blank{display:inline-block;width:auto;min-width:64px;max-width:180px;padding:6px 8px;font-size:1rem;
+  border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:inherit;margin:2px 3px}
+input.blank:focus{outline:3px solid var(--focus);outline-offset:2px}
+input.blank.right{border-color:var(--ok);background:var(--ok-bg)}
+input.blank.wrong{border-color:var(--no);background:var(--no-bg)}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div id="home">
+<header class="top">
+  <h1>Learning modules – Class 7e</h1>
+  <p>Camden Town 7 · Theme 1: On the move</p>
+</header>
+
+<h2 class="sectiontitle">Theme 1 – On the move</h2>
+
+<button class="modcard" data-m="0">
+  <span class="nr">Module 0</span>
+  <p class="t">Revision: tenses</p>
+  <p class="d">simple present · simple past · present perfect · about 20 minutes</p>
+</button>
+<button class="modcard" data-m="1">
+  <span class="nr">Module 1</span>
+  <p class="t">Words: Problem page</p>
+  <p class="d">Textbook p. 221 · about 20 minutes</p>
+</button>
+<button class="modcard" data-m="2">
+  <span class="nr">Module 2</span>
+  <p class="t">Asking for and giving advice</p>
+  <p class="d">Useful phrases from Theme 1 · about 20 minutes</p>
+</button>
+<button class="modcard" data-m="3">
+  <span class="nr">Module 3</span>
+  <p class="t">Get ready for test 2 and your letter</p>
+  <p class="d">Intro words · advice · writing a letter · about 20 minutes</p>
+</button>
+<button class="modcard" data-m="4">
+  <span class="nr">Module 4</span>
+  <p class="t">Vocabulary: get ready for VT3</p>
+  <p class="d">Theme 1, p. 222 (Part A) · about 15 minutes</p>
+</button>
+<button class="modcard" data-m="5">
+  <span class="nr">Module 5</span>
+  <p class="t">Vocabulary: get ready for VT4</p>
+  <p class="d">Theme 1, p. 223 · about 20 minutes</p>
+</button>
+<button class="modcard" data-m="6">
+  <span class="nr">Module 6</span>
+  <p class="t">Vocabulary: get ready for VT5</p>
+  <p class="d">Theme 1, p. 224 · about 20 minutes</p>
+</button>
+<button class="modcard" data-m="7">
+  <span class="nr">Module 7</span>
+  <p class="t">Vocabulary: get ready for VT6</p>
+  <p class="d">Theme 1, p. 225 · about 20 minutes</p>
+</button>
+
+<h2 class="sectiontitle">Extra practice</h2>
+
+<button class="modcard kacard" id="openKA">
+  <span class="nr">Test prep</span>
+  <p class="t">Get ready for your first class test</p>
+  <p class="d">Tenses · spelling · a reading text · a letter of advice (new situation) · with model answers</p>
+  <p class="dots">🟢 Support &nbsp; 🟡 Standard &nbsp; 🟠 Challenge — choose your own track</p>
+</button>
+
+<div class="help">
+  <strong>How this works</strong>
+  <ul class="tips">
+    <li>Work through any module at your own pace. You get feedback after every answer — no name, no code needed.</li>
+    <li>Use Modules 0–3 to revise, and Test prep to get ready for your first class test.</li>
+    <li>If a page stays empty, open this link in Safari or Chrome.</li>
+  </ul>
+</div>
+<footer class="note">Camden Town 7 · Class 7e · English · Frn</footer>
+</div>
+
+<div id="topnav" class="hide"><a href="#" id="topnavBack">← Back to overview</a></div>
+<div id="app" class="hide"></div>
+
+</div>
+<script>
+const MODULES=[{"id": "M0", "file": "Lernmodul_0_Revision_tenses.html", "pass": 0.75, "title": "Learning module 0 – Revision: tenses", "subtitle": "simple present · simple past · present perfect | about 20 minutes", "intro": "You already know these three tenses from years 5 and 6. This module checks what you still remember before we start Theme 1.", "sections": [{"name": "Signal words", "instruction": "Which tense goes with this signal word?", "type": "mc", "level": "basis", "items": [{"q": "every morning", "o": ["simple present", "simple past", "present perfect", "none of them"], "a": 0, "h": "Something that happens again and again."}, {"q": "last summer", "o": ["simple present", "simple past", "present perfect", "none of them"], "a": 1, "h": "A finished time in the past."}, {"q": "never (up to now)", "o": ["simple present", "simple past", "present perfect", "none of them"], "a": 2, "h": "From the past until now."}, {"q": "two weeks ago", "o": ["simple present", "simple past", "present perfect", "none of them"], "a": 1, "h": "'ago' always points to a finished time."}, {"q": "since 2019", "o": ["simple present", "simple past", "present perfect", "none of them"], "a": 2, "h": "It started in the past and is still true."}, {"q": "usually", "o": ["simple present", "simple past", "present perfect", "none of them"], "a": 0, "h": "A habit."}]}, {"name": "Choose the form", "instruction": "Choose the correct form.", "type": "mc", "level": "basis", "items": [{"q": "Gillian usually ___ to school by bus.", "o": ["go", "goes", "went", "has gone"], "a": 1, "h": "Third person singular in the simple present."}, {"q": "Last summer the family ___ to Wales.", "o": ["travel", "travels", "travelled", "has travelled"], "a": 2, "h": "'Last summer' is finished."}, {"q": "I have never ___ a boarding school.", "o": ["see", "saw", "seen", "seeing"], "a": 2, "h": "After 'have' you need the past participle."}, {"q": "Emma ___ her homework yesterday evening.", "o": ["does", "did", "has done", "is doing"], "a": 1, "h": "'Yesterday' is finished."}, {"q": "We ___ in Camden since 2019.", "o": ["live", "lived", "have lived", "are living"], "a": 2, "h": "It started in 2019 and is still true."}, {"q": "Have you ever ___ to Cardiff?", "o": ["be", "was", "been", "being"], "a": 2, "h": "be – was/were – been."}]}, {"name": "Write the verb", "instruction": "Put the verb in the correct tense.", "type": "type", "level": "basis", "items": [{"q": "Yesterday Gillian ___ (write) a letter to Ally.", "a": ["wrote"], "h": "write – wrote – written"}, {"q": "Every morning Charlie ___ (get) up at seven.", "a": ["gets"], "h": "Third person singular needs an -s."}, {"q": "They ___ (move) to Wales two weeks ago.", "a": ["moved"], "h": "'ago' → simple past"}, {"q": "I ___ (just / finish) my homework.", "a": ["have just finished", "'ve just finished"], "h": "have + just + past participle"}, {"q": "Emma ___ (not / like) maths.", "a": ["doesn't like", "does not like"], "h": "Use 'does not' for he/she/it."}, {"q": "Caroline ___ (call) me last night.", "a": ["called"], "h": "A regular verb: add -ed."}]}, {"name": "Extra challenge", "instruction": "Put the verb in the correct tense.", "type": "type", "level": "plus", "items": [{"q": "We ___ (know) each other since primary school.", "a": ["have known", "'ve known"], "h": "know – knew – known"}, {"q": "He ___ (live) in London for three years now.", "a": ["has lived", "'s lived"], "h": "'for three years now' → present perfect"}, {"q": "Last night I ___ (not / sleep) very well.", "a": ["didn't sleep", "did not sleep"], "h": "A finished time in the past."}, {"q": "___ (they / be) at the concert last week?", "a": ["were they"], "h": "Question with 'be' in the simple past."}]}]},
+{"id": "M1", "file": "Lernmodul_1_Wortschatz_Intro.html", "pass": 0.75, "title": "Learning module 1 – Words: Problem page", "subtitle": "Theme 1, Intro (Textbook p. 221) | about 20 minutes", "intro": "These are the words from the Intro of Theme 1. First look at the word cards, then test yourself.", "sections": [{"name": "Warm-up: word cards", "instruction": "Turn the card over and check if you knew the word.", "type": "flash", "level": "basis", "items": [{"f": "to argue (about)", "b": "sich streiten (wegen)"}, {"f": "embarrassed", "b": "verlegen, peinlich berührt"}, {"f": "to get married", "b": "heiraten"}, {"f": "on the other hand", "b": "andererseits, auf der anderen Seite"}, {"f": "normal", "b": "normal, üblich"}, {"f": "on the one hand", "b": "einerseits, auf der einen Seite"}, {"f": "although", "b": "obwohl"}, {"f": "Good luck!", "b": "Viel Glück!"}, {"f": "to get divorced", "b": "geschieden werden"}, {"f": "to marry", "b": "heiraten"}, {"f": "to organize", "b": "organisieren"}, {"f": "all the time", "b": "die ganze Zeit"}, {"f": "advice", "b": "Rat(schlag), Ratschläge"}, {"f": "stuff", "b": "Zeug, Sachen"}, {"f": "coach", "b": "Trainer/in, hier: Coach, Sportlehrer/in"}, {"f": "to make sth", "b": "etw schaffen, hier: in etw reinkommen"}]}, {"name": "Words from the Problem page – choose", "instruction": "Which English word means this?", "type": "mc", "level": "basis", "items": [{"q": "Rat(schlag), Ratschläge", "o": ["to get divorced", "desperate", "to argue (about)", "advice"], "a": 3, "h": "The word starts with 'a'."}, {"q": "heiraten", "o": ["to make sth", "to get married", "stuff", "on the other hand"], "a": 1, "h": "The word starts with 'g'."}, {"q": "die ganze Zeit", "o": ["all the time", "although", "normal", "magazine"], "a": 0, "h": "The word starts with 'a'."}, {"q": "Viel Glück!", "o": ["coach", "all the time", "Good luck!", "on the other hand"], "a": 2, "h": "The word starts with 'G'."}, {"q": "obwohl", "o": ["although", "to get divorced", "on the other hand", "embarrassed"], "a": 0, "h": "The word starts with 'a'."}, {"q": "sich streiten (wegen)", "o": ["coach", "advice", "to organize", "to argue (about)"], "a": 3, "h": "The word starts with 'a'."}, {"q": "Mit freundlichen Grüßen, Viele Grüße", "o": ["on the one hand", "on the other hand", "although", "Yours"], "a": 3, "h": "The word starts with 'Y'."}, {"q": "Zeug, Sachen", "o": ["might", "on the other hand", "stuff", "desperate"], "a": 2, "h": "The word starts with 's'."}]}, {"name": "Words from the Problem page – write", "instruction": "Write the English word.", "type": "type", "level": "basis", "items": [{"q": "Trainer/in, hier: Coach, Sportlehrer/in", "a": ["coach"], "h": "It has 5 letters and starts with 'c'."}, {"q": "verzweifelt", "a": ["desperate"], "h": "It has 9 letters and starts with 'd'."}, {"q": "organisieren", "a": ["to organize", "organize"], "h": "It has 8 letters and starts with 'o'."}, {"q": "Viel Glück!", "a": ["Good luck!"], "h": "It has 10 letters and starts with 'G'."}, {"q": "Mit freundlichen Grüßen, Viele Grüße", "a": ["Yours"], "h": "It has 5 letters and starts with 'Y'."}, {"q": "heiraten", "a": ["to marry", "marry"], "h": "It has 5 letters and starts with 'm'."}]}, {"name": "Extra challenge", "instruction": "Write the English word.", "type": "type", "level": "plus", "items": [{"q": "peinlich berührt, verlegen", "a": ["embarrassed"], "h": "Two 'r' and two 's'."}, {"q": "offensichtlich, deutlich", "a": ["obviously"], "h": "It ends in -ly."}, {"q": "einerseits", "a": ["on the one hand"], "h": "Four words."}, {"q": "andererseits", "a": ["on the other hand"], "h": "Four words."}]}]},
+{"id": "M2", "file": "Lernmodul_2_Asking_and_giving_advice.html", "pass": 0.75, "title": "Learning module 2 – Asking for and giving advice", "subtitle": "Useful phrases from Theme 1 | about 20 minutes", "intro": "In your first class test you will write a letter and give advice. These are the phrases you need.", "sections": [{"name": "Warm-up: phrase cards", "instruction": "Turn the card over and check if you knew the phrase.", "type": "flash", "level": "basis", "items": [{"f": "Please help me, I'm desperate.", "b": "Bitte hilf mir, ich bin verzweifelt."}, {"f": "What should I do?", "b": "Was soll ich tun?"}, {"f": "Please give me some advice.", "b": "Bitte gib mir einen Rat."}, {"f": "I hope you can help me.", "b": "Ich hoffe, du kannst mir helfen."}, {"f": "You could talk to her.", "b": "Du könntest mit ihr reden."}, {"f": "Perhaps it would be a good idea to …", "b": "Vielleicht wäre es eine gute Idee, …"}, {"f": "Think about what you can do to …", "b": "Denk darüber nach, was du tun kannst, um …"}, {"f": "… is certainly not the answer.", "b": "… ist sicher nicht die Lösung."}, {"f": "You should really try to …", "b": "Du solltest wirklich versuchen, …"}, {"f": "Don't give up!", "b": "Gib nicht auf!"}, {"f": "If I were you, I would …", "b": "An deiner Stelle würde ich …"}, {"f": "Good luck!", "b": "Viel Glück!"}]}, {"name": "Asking or giving?", "instruction": "Does this phrase ask for advice or give advice?", "type": "mc", "level": "basis", "items": [{"q": "What can I do?", "o": ["asking for advice", "giving advice"], "a": 0, "h": "Who has the problem here?"}, {"q": "You could be a bit nicer to her.", "o": ["asking for advice", "giving advice"], "a": 1, "h": "'could' makes a suggestion."}, {"q": "I hope you can help me.", "o": ["asking for advice", "giving advice"], "a": 0, "h": "The writer needs help."}, {"q": "Perhaps it would be a good idea to talk to your mum.", "o": ["asking for advice", "giving advice"], "a": 1, "h": "'a good idea' is a suggestion."}, {"q": "Please give me some advice.", "o": ["asking for advice", "giving advice"], "a": 0, "h": "—"}, {"q": "Running away is certainly not the answer.", "o": ["asking for advice", "giving advice"], "a": 1, "h": "The writer says what NOT to do."}]}, {"name": "Which phrase fits?", "instruction": "Read the situation and choose the best answer.", "type": "mc", "level": "basis", "items": [{"q": "Gillian writes: 'My mum wants to get married again and I hate it.' What is a good first sentence in your answer?", "o": ["That's your problem, not mine.", "I can understand why you feel upset.", "You must be happy for her.", "Stop writing to me."], "a": 1, "h": "Start by showing that you understand the person.", "e": "Always show understanding before you give advice."}, {"q": "Which sentence gives advice in a friendly way?", "o": ["You have to do what I say.", "You must talk to her now!", "You could try to talk to her at the weekend.", "Talking is stupid."], "a": 2, "h": "'could' is friendlier than 'must'."}, {"q": "How can you end a letter with advice?", "o": ["Bye.", "Good luck! Yours, Anna", "The end.", "I don't care."], "a": 1, "h": "Wish the person luck and sign your letter."}, {"q": "Which sentence explains WHY you give this advice?", "o": ["You could talk to your dad because he knows the situation.", "You could talk to your dad.", "Talk to your dad!", "Your dad."], "a": 0, "h": "Look for the word 'because'."}]}, {"name": "Complete the phrase", "instruction": "Write the missing word.", "type": "type", "level": "basis", "items": [{"q": "If I ___ you, I would talk to her. (advice)", "a": ["were", "was"], "h": "'If I ___ you' – a fixed phrase."}, {"q": "You ___ try to explain how you feel. (friendly advice)", "a": ["could", "should"], "h": "Two answers are possible here."}, {"q": "Please give me some ___ . (Rat)", "a": ["advice"], "h": "There is no plural of this word."}, {"q": "Good ___ with your test! (Viel Glück)", "a": ["luck"], "h": "Four letters."}]}, {"name": "Extra challenge", "instruction": "Write the whole phrase in English.", "type": "type", "level": "plus", "items": [{"q": "An deiner Stelle würde ich mit ihr reden.", "a": ["if i were you i would talk to her", "if i were you, i would talk to her"], "h": "Start with 'If I …'"}, {"q": "Vielleicht wäre es eine gute Idee, deinem Vater zu schreiben.", "a": ["perhaps it would be a good idea to write to your father", "maybe it would be a good idea to write to your father"], "h": "Start with 'Perhaps it would be …'"}, {"q": "Weglaufen ist sicher nicht die Lösung.", "a": ["running away is certainly not the answer"], "h": "Use 'certainly not the answer'."}]}]},
+{"id": "M3", "file": "Lernmodul_3_Test2_and_letter.html", "pass": 0.75, "title": "Learning module 3 – Get ready for test 2 and your letter", "subtitle": "Theme 1 Intro words · asking for and giving advice · writing a letter | about 20 minutes", "intro": "On Tuesday, 6 October, you write your first class test: a letter of advice. Use this module to revise the words, phrases and letter structure you need.", "sections": [{"name": "Warm-up: word cards", "instruction": "Turn the card over and check if you knew the word.", "type": "flash", "level": "basis", "items": [{"f": "to make sth (e.g. make the team)", "b": "etw schaffen, hier: in etw reinkommen"}, {"f": "might", "b": "könnte, vielleicht"}, {"f": "coach", "b": "Trainer/in, Sportlehrer/in"}, {"f": "all the time", "b": "die ganze Zeit"}, {"f": "normal", "b": "normal, üblich"}, {"f": "to organize", "b": "organisieren"}, {"f": "to get married", "b": "heiraten"}, {"f": "to marry", "b": "heiraten"}, {"f": "embarrassed", "b": "verlegen, peinlich berührt"}, {"f": "to fall in love (with sb)", "b": "sich (in jdn) verlieben"}, {"f": "to die (of)", "b": "sterben (an)"}, {"f": "useful", "b": "nützlich, praktisch"}, {"f": "unrealistic", "b": "unrealistisch"}, {"f": "to scan (for)", "b": "absuchen (nach), überfliegen"}, {"f": "to collect", "b": "(ein)sammeln"}, {"f": "out of", "b": "aus"}]}, {"name": "Words – choose", "instruction": "Which English word means this?", "type": "mc", "level": "basis", "items": [{"q": "heiraten", "o": ["to get divorced", "to get married", "to argue", "to organize"], "a": 1, "h": "The opposite of 'to get divorced'."}, {"q": "unrealistisch, nicht realistisch", "o": ["useful", "normal", "unrealistic", "desperate"], "a": 2, "h": "It looks almost like the German word."}, {"q": "sterben (an)", "o": ["to die (of)", "to fall in love", "to collect", "to scan (for)"], "a": 0, "h": "Three letters after 'to'."}, {"q": "nützlich, praktisch", "o": ["embarrassed", "heart", "nobody", "useful"], "a": 3, "h": "It ends in -ful."}, {"q": "die ganze Zeit", "o": ["all the time", "on the one hand", "out of", "Good luck!"], "a": 0, "h": "Three words, one of them is 'time'."}, {"q": "sich (in jdn) verlieben", "o": ["to make up", "to fall in love (with sb)", "to get married", "to organize"], "a": 1, "h": "Something happens to your heart."}, {"q": "absuchen (nach), überfliegen", "o": ["to collect", "to argue (about)", "to scan (for)", "to marry"], "a": 2, "h": "You do this with a text when you look for one word."}, {"q": "etw schaffen, hier: in etw reinkommen (z. B. in ein Team)", "o": ["to make up", "to organize", "to collect", "to make sth"], "a": 3, "h": "If you ___ the team, you are part of it."}]}, {"name": "Words – write", "instruction": "Write the missing word. The German word in brackets helps you.", "type": "type", "level": "basis", "items": [{"q": "It ___ rain later. Take an umbrella!  (könnte)", "a": ["might"], "h": "Five letters, starts with 'm'."}, {"q": "Our new football ___ is very strict.  (Trainer/in)", "a": ["coach"], "h": "Five letters, starts with 'c'."}, {"q": "I'm going to ___ a party for my friend's birthday.  (organisieren)", "a": ["organize", "organise"], "h": "It looks like the German word."}, {"q": "I forgot my best friend's birthday. I'm so ___ .  (verlegen, peinlich berührt)", "a": ["embarrassed"], "h": "Two 'r' and two 's'."}, {"q": "You can ___ new words in a word web.  (sammeln)", "a": ["collect"], "h": "Seven letters, double 'l'."}, {"q": "Look ___ the window – it's raining!  (aus)", "a": ["out of"], "h": "Two words."}]}, {"name": "Build your letter", "instruction": "Which sentence fits this part of your letter?", "type": "mc", "level": "basis", "items": [{"q": "Part 1 – the greeting", "o": ["Yours, Ally", "Dear Megan,", "Good luck!", "What can I do?"], "a": 1, "h": "A letter starts with 'Dear' and a name – then a comma."}, {"q": "Part 2 – show that you understand the writer", "o": ["That is your problem, not mine.", "Please help me, I'm desperate.", "I can understand why you feel so unhappy.", "Yours, Ben"], "a": 2, "h": "Be friendly and show that you care."}, {"q": "Part 3 – give advice", "o": ["Why don't you talk to your mum?", "What should I do?", "I hope you can help me.", "Dear Ally,"], "a": 0, "h": "Which sentence tells the other person what they could do?"}, {"q": "Part 4 – give a reason for your advice", "o": ["… and that's all.", "… because she knows you very well.", "… on the other hand.", "… Good luck!"], "a": 1, "h": "Look for 'because'."}, {"q": "Part 5 – the ending", "o": ["Please give me some advice.", "Dear Megan,", "What can I do?", "Good luck – and write to me again! Yours, Ally"], "a": 3, "h": "Wish the person luck and sign your letter."}]}, {"name": "Extra challenge", "instruction": "Write the missing word or words.", "type": "type", "level": "plus", "items": [{"q": "Sam and Lara have ___ in love.  (sich verlieben)", "a": ["fallen"], "h": "fall – fell – fallen"}, {"q": "The old king ___ ___ a broken heart.  (starb an)", "a": ["died of"], "h": "Simple past of 'die' + 'of'."}, {"q": "Your idea sounds very ___ . It will never work.  (unrealistisch)", "a": ["unrealistic"], "h": "un- + realistic"}, {"q": "If you ___ the team, you are part of it.  (schaffen, reinkommen)", "a": ["make"], "h": "Four letters."}]}]},
+{"id": "M4", "file": "Lernmodul_4_Vokabeln_VT3.html", "pass": 0.75, "title": "Learning module 4 – Vocabulary: get ready for VT3", "subtitle": "Theme 1, p. 222 (Part A) | about 15 minutes", "intro": "These are the words from page 222 that you still need for your next vocabulary test (VT3). You already know the words from the Problem page (Modules 1 and 3) – this module adds the rest of page 222.", "sections": [{"name": "Warm-up: word cards", "instruction": "Turn the card over and check if you knew the word.", "type": "flash", "level": "basis", "items": [{"f": "reaction (to)", "b": "Reaktion (auf)"}, {"f": "which", "b": "welche(r, s)"}, {"f": "while", "b": "während, als"}, {"f": "rather", "b": "ziemlich, recht"}, {"f": "wedding", "b": "Hochzeit(en)"}, {"f": "to turn on", "b": "einschalten, aufdrehen, anmachen"}, {"f": "to sing along", "b": "mitsingen"}, {"f": "however", "b": "jedoch, aber"}, {"f": "quite", "b": "ziemlich, ganz"}, {"f": "to slam the door shut", "b": "die Tür zuschlagen"}, {"f": "to take a deep breath", "b": "tief Luft holen"}, {"f": "to hug", "b": "umarmen"}, {"f": "kind", "b": "Art, Sorte"}]}, {"name": "Words – choose", "instruction": "Which English word means this?", "type": "mc", "level": "basis", "items": [{"q": "ziemlich, recht", "o": ["kind", "however", "rather", "to take a deep breath"], "a": 2}, {"q": "tief Luft holen", "o": ["while", "wedding", "quite", "to take a deep breath"], "a": 3}, {"q": "Art, Sorte", "o": ["kind", "quite", "to slam the door shut", "wedding"], "a": 0}, {"q": "jedoch, aber", "o": ["which", "however", "to slam the door shut", "to turn on"], "a": 1}, {"q": "die Tür zuschlagen", "o": ["to take a deep breath", "however", "rather", "to slam the door shut"], "a": 3}, {"q": "Hochzeit(en)", "o": ["quite", "wedding", "to take a deep breath", "to sing along"], "a": 1}, {"q": "umarmen", "o": ["kind", "rather", "to hug", "which"], "a": 2}, {"q": "ziemlich, ganz", "o": ["wedding", "however", "quite", "to turn on"], "a": 2}]}, {"name": "Words – write", "instruction": "Write the English word.", "type": "type", "level": "basis", "items": [{"q": "ziemlich, ganz", "a": ["quite"], "h": "It has 5 letters and starts with 'q'."}, {"q": "ziemlich, recht", "a": ["rather"], "h": "It has 6 letters and starts with 'r'."}, {"q": "mitsingen", "a": ["to sing along", "sing along"], "h": "It's 2 words, starting with 's'."}, {"q": "umarmen", "a": ["to hug", "hug"], "h": "It has 3 letters and starts with 'h'."}, {"q": "welche(r, s)", "a": ["which"], "h": "It has 5 letters and starts with 'w'."}, {"q": "die Tür zuschlagen", "a": ["to slam the door shut", "slam the door shut"], "h": "It's 4 words, starting with 's'."}, {"q": "einschalten, aufdrehen, anmachen", "a": ["to turn on", "turn on"], "h": "It's 2 words, starting with 't'."}, {"q": "tief Luft holen", "a": ["to take a deep breath", "take a deep breath"], "h": "It's 4 words, starting with 't'."}]}, {"name": "Extra challenge", "instruction": "Write the missing word(s).", "type": "type", "level": "plus", "items": [{"q": "Lauf nicht einfach weg, wenn wir streiten: Don't just ___ ___ when we argue.", "a": ["turn away"], "h": "2 words"}, {"q": "Wir ___ ___ ___ das Lied, als es im Radio kam. (mitsingen)", "a": ["sang along to", "sang along"], "h": "to sing along"}, {"q": "Hol tief Luft, bevor du antwortest: ___ ___ ___ ___ before you answer.", "a": ["take a deep breath"], "h": "4 words"}, {"q": "Mein kleiner Bruder ___ ___ ___ ___, wenn er wütend ist. (knallt die Tür zu)", "a": ["slams the door shut"], "h": "to slam the door shut"}]}], "vocabTest": true},
+{"id": "M5", "file": "Lernmodul_5_Vokabeln_VT4.html", "pass": 0.75, "title": "Learning module 5 – Vocabulary: get ready for VT4", "subtitle": "Theme 1, p. 223 | about 20 minutes", "intro": "These are all the words from page 223 – the vocabulary you need for VT4.", "sections": [{"name": "Warm-up: word cards", "instruction": "Turn the card over and check if you knew the word.", "type": "flash", "level": "basis", "items": [{"f": "to expect", "b": "erwarten, rechnen (mit)"}, {"f": "such", "b": "solch(er/es)"}, {"f": "completely", "b": "völlig"}, {"f": "helpless", "b": "hilflos, machtlos"}, {"f": "to move", "b": "(sich) bewegen, hier: (um)ziehen"}, {"f": "to get out of sth", "b": "etw aus etw herauskommen, hier: aus etw verschwinden"}, {"f": "to turn away", "b": "sich abwenden, wegrücken"}, {"f": "still", "b": "(immer) noch"}, {"f": "even if", "b": "selbst wenn"}, {"f": "country", "b": "Land"}, {"f": "UK (= the United Kingdom)", "b": "Vereinigtes Königreich"}, {"f": "capital (city)", "b": "Hauptstadt"}, {"f": "the other one", "b": "der/die andere"}, {"f": "note", "b": "Notiz, Mitteilung"}, {"f": "action", "b": "Handeln, Handlung, Tat"}, {"f": "to travel", "b": "reisen"}, {"f": "to drive, drove, driven", "b": "fahren"}, {"f": "to pack", "b": "(ein)packen"}, {"f": "simple", "b": "einfach"}]}, {"name": "Words – choose", "instruction": "Which English word means this?", "type": "mc", "level": "basis", "items": [{"q": "Notiz, Mitteilung", "o": ["to expect", "note", "capital (city)", "to travel"], "a": 1}, {"q": "Hauptstadt", "o": ["such", "capital (city)", "to drive, drove, driven", "to turn away"], "a": 1}, {"q": "Handeln, Handlung, Tat", "o": ["to drive, drove, driven", "simple", "action", "the other one"], "a": 2}, {"q": "hilflos, machtlos", "o": ["note", "country", "to get out of sth", "helpless"], "a": 3}, {"q": "fahren", "o": ["to drive, drove, driven", "the other one", "note", "capital (city)"], "a": 0}, {"q": "völlig", "o": ["even if", "completely", "to turn away", "to get out of sth"], "a": 1}, {"q": "(immer) noch", "o": ["UK (= the United Kingdom)", "country", "still", "to get out of sth"], "a": 2}, {"q": "der/die andere", "o": ["the other one", "simple", "UK (= the United Kingdom)", "capital (city)"], "a": 0}]}, {"name": "Words – write", "instruction": "Write the English word.", "type": "type", "level": "basis", "items": [{"q": "Land", "a": ["country"], "h": "It has 7 letters and starts with 'c'."}, {"q": "sich abwenden, wegrücken", "a": ["to turn away", "turn away"], "h": "It's 2 words, starting with 't'."}, {"q": "erwarten, rechnen (mit)", "a": ["to expect", "expect"], "h": "It has 6 letters and starts with 'e'."}, {"q": "reisen", "a": ["to travel", "travel"], "h": "It has 6 letters and starts with 't'."}, {"q": "selbst wenn", "a": ["even if"], "h": "It's 2 words, starting with 'e'."}, {"q": "(sich) bewegen, hier: (um)ziehen", "a": ["to move", "move"], "h": "It has 4 letters and starts with 'm'."}, {"q": "einfach", "a": ["simple"], "h": "It has 6 letters and starts with 's'."}, {"q": "(ein)packen", "a": ["to pack", "pack"], "h": "It has 4 letters and starts with 'p'."}]}, {"name": "Extra challenge", "instruction": "Write the missing word(s).", "type": "type", "level": "plus", "items": [{"q": "Write the full irregular forms: to drive, ___, ___.", "a": ["drove, driven", "drove , driven"], "h": "simple past, past participle"}, {"q": "Selbst wenn ich müde bin, gehe ich joggen: ___ ___ I'm tired, I go jogging.", "a": ["even if"], "h": "2 words"}, {"q": "England, Scotland, Wales and Northern Ireland are the four countries of the ___.", "a": ["uk", "united kingdom"], "h": "an abbreviation, 2 capital letters"}, {"q": "Die Hauptstadt von Deutschland ist Berlin: The ___ ___ Germany is Berlin.", "a": ["capital of", "capital city of"], "h": "2-3 words"}]}], "vocabTest": true},
+{"id": "M6", "file": "Lernmodul_6_Vokabeln_VT5.html", "pass": 0.75, "title": "Learning module 6 – Vocabulary: get ready for VT5", "subtitle": "Theme 1, p. 224 | about 20 minutes", "intro": "These are all the words from page 224 – the vocabulary you need for VT5.", "sections": [{"name": "Warm-up: word cards", "instruction": "Turn the card over and check if you knew the word.", "type": "flash", "level": "basis", "items": [{"f": "to feel like doing sth", "b": "Lust haben, etw zu tun"}, {"f": "to break down, broke down, broken down", "b": "stehen bleiben, versagen, zusammenbrechen"}, {"f": "to belong", "b": "(dazu)gehören"}, {"f": "lost", "b": "verlaufen, verloren"}, {"f": "powerful", "b": "mächtig, stark, druckvoll"}, {"f": "dramatic", "b": "dramatisch"}, {"f": "to illustrate", "b": "illustrieren"}, {"f": "optimistic", "b": "optimistisch"}, {"f": "mood", "b": "Laune, Stimmung"}, {"f": "patient", "b": "geduldig"}, {"f": "goodbye(s)", "b": "Abschied(s-)"}, {"f": "to panic", "b": "in Panik geraten"}, {"f": "to be missing", "b": "fehlen"}, {"f": "flat", "b": "(Etagen)wohnung, Mietwohnung"}, {"f": "to persuade", "b": "überreden, überzeugen"}, {"f": "change", "b": "(Ver)änderung, Wechsel, Umstellung"}, {"f": "point of view", "b": "Ansicht, Einstellung, hier: Sicht"}, {"f": "another", "b": "noch ein(e, s), ein(e) andere(r)"}, {"f": "to go together", "b": "zusammenpassen, passen"}, {"f": "asap/ASAP (= as soon as possible)", "b": "so schnell wie möglich"}, {"f": "conversation", "b": "Gespräch, Unterhaltung"}, {"f": "top", "b": "oberes Ende, Spitze, hier: beste(r, s)"}, {"f": "choice", "b": "(Aus)wahl"}, {"f": "to chat", "b": "plaudern, chatten"}, {"f": "I see what you mean.", "b": "Ich weiß, was du meinst."}]}, {"name": "Words – choose", "instruction": "Which English word means this?", "type": "mc", "level": "basis", "items": [{"q": "Laune, Stimmung", "o": ["mood", "to belong", "powerful", "goodbye(s)"], "a": 0}, {"q": "in Panik geraten", "o": ["to panic", "I see what you mean.", "point of view", "mood"], "a": 0}, {"q": "geduldig", "o": ["patient", "to illustrate", "to be missing", "another"], "a": 0}, {"q": "illustrieren", "o": ["to illustrate", "goodbye(s)", "top", "another"], "a": 0}, {"q": "Abschied(s-)", "o": ["goodbye(s)", "to be missing", "another", "dramatic"], "a": 0}, {"q": "Ich weiß, was du meinst.", "o": ["asap/ASAP (= as soon as possible)", "I see what you mean.", "conversation", "optimistic"], "a": 1}, {"q": "mächtig, stark, druckvoll", "o": ["optimistic", "I see what you mean.", "mood", "powerful"], "a": 3}, {"q": "dramatisch", "o": ["dramatic", "patient", "to feel like doing sth", "point of view"], "a": 0}]}, {"name": "Words – write", "instruction": "Write the English word.", "type": "type", "level": "basis", "items": [{"q": "(Ver)änderung, Wechsel, Umstellung", "a": ["change"], "h": "It has 6 letters and starts with 'c'."}, {"q": "verlaufen, verloren", "a": ["lost"], "h": "It has 4 letters and starts with 'l'."}, {"q": "(Aus)wahl", "a": ["choice"], "h": "It has 6 letters and starts with 'c'."}, {"q": "plaudern, chatten", "a": ["to chat", "chat"], "h": "It has 4 letters and starts with 'c'."}, {"q": "Ansicht, Einstellung, hier: Sicht", "a": ["point of view"], "h": "It's 3 words, starting with 'p'."}, {"q": "noch ein(e, s), ein(e) andere(r)", "a": ["another"], "h": "It has 7 letters and starts with 'a'."}, {"q": "optimistisch", "a": ["optimistic"], "h": "It has 10 letters and starts with 'o'."}, {"q": "(Etagen)wohnung, Mietwohnung", "a": ["flat"], "h": "It has 4 letters and starts with 'f'."}]}, {"name": "Extra challenge", "instruction": "Write the missing word(s).", "type": "type", "level": "plus", "items": [{"q": "Write the full irregular forms: to break down, ___, ___.", "a": ["broke down, broken down", "broke down , broken down"], "h": "simple past, past participle"}, {"q": "So schnell wie möglich (Abkürzung)", "a": ["asap", "ASAP"], "h": "4 capital letters"}, {"q": "Ich habe Lust, einen Film zu schauen: I ___ ___ ___ a film.", "a": ["feel like watching"], "h": "to feel like doing sth"}, {"q": "Das Geld war weg, niemand wusste wo: The money ___ ___.", "a": ["was missing"], "h": "to be missing"}]}], "vocabTest": true},
+{"id": "M7", "file": "Lernmodul_7_Vokabeln_VT6.html", "pass": 0.75, "title": "Learning module 7 – Vocabulary: get ready for VT6", "subtitle": "Theme 1, p. 225 | about 20 minutes", "intro": "These are all the words from page 225 – the vocabulary you need for VT6. This test is cumulative, so it also helps to look back at Modules 4–6.", "sections": [{"name": "Warm-up: word cards", "instruction": "Turn the card over and check if you knew the word.", "type": "flash", "level": "basis", "items": [{"f": "headphones", "b": "Kopfhörer"}, {"f": "so", "b": "also, deshalb, hier: damit"}, {"f": "not even", "b": "noch nicht einmal"}, {"f": "experience", "b": "Erfahrung, Erlebnis"}, {"f": "following", "b": "folgende(r, s)"}, {"f": "to give up, gave up, given up", "b": "aufgeben, resignieren"}, {"f": "to get together", "b": "sich treffen, wieder zusammenkommen"}, {"f": "moment", "b": "Moment, Augenblick"}, {"f": "stall", "b": "(Verkaufs)stand"}, {"f": "fight", "b": "Kampf, hier: Streit"}, {"f": "as", "b": "weil, da"}, {"f": "over", "b": "hinüber, herüber, drüben, herüben"}, {"f": "brave", "b": "tapfer, mutig"}, {"f": "latest", "b": "jüngste(r, s), letzte(r, s), neueste(r, s)"}, {"f": "match", "b": "Spiel, Partie"}, {"f": "costume", "b": "Kostüm"}, {"f": "uncomfortable", "b": "unbequem, unbehaglich"}, {"f": "polite", "b": "höflich"}, {"f": "to make sb do sth", "b": "jdn zu etwas bringen, jdn etwas tun lassen"}, {"f": "to take off, took off, taken off", "b": "abnehmen, ausziehen, ablegen"}, {"f": "to go through, went through, gone through", "b": "durchgehen"}, {"f": "directly", "b": "direkt, genau, sofort"}, {"f": "particular", "b": "bestimmt, besondere(r, s), speziell"}, {"f": "to comment (on)", "b": "kommentieren"}, {"f": "to have sth in common (with sb)", "b": "etw (mit jdm) gemeinsam haben"}, {"f": "draft", "b": "Entwurf"}, {"f": "spelling", "b": "Rechtschreibung, Rechtschreib-"}]}, {"name": "Words – choose", "instruction": "Which English word means this?", "type": "mc", "level": "basis", "items": [{"q": "bestimmt, besondere(r, s), speziell", "o": ["particular", "following", "directly", "over"], "a": 0}, {"q": "folgende(r, s)", "o": ["to have sth in common (with sb)", "following", "directly", "spelling"], "a": 1}, {"q": "direkt, genau, sofort", "o": ["directly", "to get together", "latest", "headphones"], "a": 0}, {"q": "Rechtschreibung, Rechtschreib-", "o": ["uncomfortable", "spelling", "moment", "to have sth in common (with sb)"], "a": 1}, {"q": "höflich", "o": ["following", "polite", "so", "to have sth in common (with sb)"], "a": 1}, {"q": "(Verkaufs)stand", "o": ["stall", "polite", "to make sb do sth", "following"], "a": 0}, {"q": "unbequem, unbehaglich", "o": ["draft", "to give up, gave up, given up", "uncomfortable", "match"], "a": 2}, {"q": "also, deshalb, hier: damit", "o": ["uncomfortable", "so", "to go through, went through, gone through", "to give up, gave up, given up"], "a": 1}]}, {"name": "Words – write", "instruction": "Write the English word.", "type": "type", "level": "basis", "items": [{"q": "Kostüm", "a": ["costume"], "h": "It has 7 letters and starts with 'c'."}, {"q": "Entwurf", "a": ["draft"], "h": "It has 5 letters and starts with 'd'."}, {"q": "Kampf, hier: Streit", "a": ["fight"], "h": "It has 5 letters and starts with 'f'."}, {"q": "Erfahrung, Erlebnis", "a": ["experience"], "h": "It has 10 letters and starts with 'e'."}, {"q": "Kopfhörer", "a": ["headphones"], "h": "It has 10 letters and starts with 'h'."}, {"q": "weil, da", "a": ["as"], "h": "It has 2 letters and starts with 'a'."}, {"q": "tapfer, mutig", "a": ["brave"], "h": "It has 5 letters and starts with 'b'."}, {"q": "Moment, Augenblick", "a": ["moment"], "h": "It has 6 letters and starts with 'm'."}]}, {"name": "Extra challenge", "instruction": "Write the missing word(s).", "type": "type", "level": "plus", "items": [{"q": "Write the full irregular forms: to give up, ___, ___.", "a": ["gave up, given up", "gave up , given up"], "h": "simple past, past participle"}, {"q": "Write the full irregular forms: to take off, ___, ___.", "a": ["took off, taken off", "took off , taken off"], "h": "simple past, past participle"}, {"q": "Write the full irregular forms: to go through, ___, ___.", "a": ["went through, gone through", "went through , gone through"], "h": "simple past, past participle"}, {"q": "Wir haben das gemeinsam: We ___ ___ ___ ___.", "a": ["have that in common", "have sth in common"], "h": "to have sth in common"}]}], "vocabTest": true}
+];
+
+let DATA=null;
+function norm(s){return s.toLowerCase().replace(/[.,!?;:]/g,"").replace(/\s+/g," ").trim();}
+
+/* ---- shared: sentences with more than one gap ---- */
+function blanksOf(q){return (q.match(/___/g)||[]).length;}
+function isMultiBlank(it){return Array.isArray(it.a) && it.a.some(a=>a.indexOf("…")>-1);}
+function blankPromptHTML(q,prefix){
+  const segs=esc(q).split("___"); let html="";
+  segs.forEach((seg,i)=>{ html+=seg; if(i<segs.length-1)html+=`<input type="text" class="blank" id="${prefix}${i}" autocomplete="off" autocapitalize="off" spellcheck="false">`; });
+  return html;
+}
+function blankValues(n,prefix){
+  const vals=[]; for(let i=0;i<n;i++){const el=document.getElementById(prefix+i); vals.push(el?el.value:"");} return vals;
+}
+function blankAnswerOk(values,accepted){
+  return accepted.some(a=>{
+    const parts=a.split(/\s*…\s*/).map(s=>s.trim());
+    if(parts.length!==values.length)return false;
+    return parts.every((p,i)=>norm(values[i])===norm(p));
+  });
+}
+function blankMarkFields(values,primaryAnswer,prefix){
+  const parts=primaryAnswer.split(/\s*…\s*/).map(s=>s.trim());
+  values.forEach((v,i)=>{
+    const el=document.getElementById(prefix+i); if(!el)return;
+    el.classList.add(norm(v)===norm(parts[i]||"")?"right":"wrong");
+    el.disabled=true;
+  });
+}
+function blankFilledSentence(q,answer){
+  const parts=answer.split(/\s*…\s*/).map(s=>s.trim());
+  const segs=esc(q).split("___"); let html="";
+  segs.forEach((seg,i)=>{ html+=seg; if(i<segs.length-1)html+=`<strong>${esc(parts[i])}</strong>`; });
+  return html;
+}
+
+let student="", plus=false, si=0, ii=0, correct=0, total=0, bonus=0, answered=false, weak=[];
+const app=document.getElementById("app");
+function sections(){return DATA.sections.filter(s=>s.level!=="plus"||plus);}
+function esc(s){return String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+
+function start(){
+  app.innerHTML=`
+  <div class="card">
+    <h2>Before you start</h2>
+    <p class="lead">${esc(DATA.intro)}</p>
+    <div class="switchrow">
+      <input type="checkbox" id="pl"><label for="pl" style="font-weight:500;margin:0">Add the extra tasks (harder)</label>
+    </div>
+    <div class="row"><button id="go">Start</button></div>
+    <div class="help" style="margin-top:16px">
+      <strong>How this works</strong>
+      <ul class="tips">
+        <li>Work through the tasks. You get feedback after every answer — no name, no code needed.</li>
+        <li>Click <em>Show help</em> whenever you need a hint. That is allowed.</li>
+        <li>At the end you see how you did. You can start again as often as you like.</li>
+      </ul>
+    </div>
+  </div>`;
+  if(DATA.vocabTest){
+    app.querySelector(".help ul.tips").insertAdjacentHTML("beforeend",
+      `<li>You need <strong>75% or more</strong> to complete this module. If you reach that, take a screenshot of the final screen and send it to your teacher. If not, no problem — just try again.</li>`);
+  }
+  window.scrollTo(0,0);
+  plus=false; si=0;ii=0;correct=0;total=0;bonus=0;weak=[];
+  document.getElementById("go").onclick=()=>{
+    plus=document.getElementById("pl").checked;
+    si=0;ii=0;correct=0;total=0;bonus=0;weak=[]; render();
+  };
+}
+
+function counts(){
+  let t=0; sections().forEach(s=>{if(s.type!=="flash"&&s.level!=="plus")t+=s.items.length;});
+  return t;
+}
+function done(){
+  let d=0,k=0;
+  sections().forEach((s,x)=>{ if(s.type==="flash")return;
+    if(x<si)d+=s.items.length; else if(x===si)d+=ii; });
+  sections().forEach(s=>{if(s.type!=="flash")k+=s.items.length;});
+  return [d,k];
+}
+
+function render(){
+  const secs=sections();
+  if(si>=secs.length){return finish();}
+  const s=secs[si];
+  if(ii>=s.items.length){si++;ii=0;return render();}
+  const [d,k]=done();
+  const pct=k?Math.round(d/k*100):0;
+  const tag=s.level==="plus"?'<span class="tag plus">Extra</span>':'<span class="tag">Task</span>';
+  let body="";
+  const it=s.items[ii];
+  const multi = s.type==="type" && isMultiBlank(it);
+  const nb = multi ? blanksOf(it.q) : 0;
+  const promptHtml = multi ? blankPromptHTML(it.q,"b") : esc(it.q||it.f);
+  if(s.type==="flash"){
+    body=`<div class="flash" id="fc" tabindex="0" role="button" aria-label="Flip the card">
+        <div class="f">${esc(it.f)}</div>
+        <div class="b hide" id="bk">${esc(it.b)}</div>
+        <div class="sub" id="hint">Click or press Enter to turn the card over</div>
+      </div>
+      <div class="row"><button class="ghost" id="again">I need to practise this</button><button id="knew">I knew it</button></div>`;
+  } else if(s.type==="mc"){
+    body=`<div class="opts">`+it.o.map((o,i)=>`<button class="opt" data-i="${i}">${esc(o)}</button>`).join("")+`</div>`;
+  } else if(multi){
+    body=`<div class="row"><button id="chk">Check</button></div>`;
+  } else {
+    body=`<label for="ans" class="sub" style="font-weight:600;color:var(--ink)">Type your answer in English</label>
+      <input type="text" id="ans" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="row"><button id="chk">Check</button></div>`;
+  }
+  app.innerHTML=`
+  <div class="card">
+    <div class="meta"><span>${esc(s.name)}</span><span>${d} / ${k}</span></div>
+    <div class="bar"><i style="width:${pct}%"></i></div>
+    ${tag}
+    <h2 style="margin-bottom:2px">${esc(s.instruction)}</h2>
+    <div class="prompt">${promptHtml}</div>
+    ${it.s?`<div class="sub">${esc(it.s)}</div>`:""}
+    ${body}
+    <div id="fb"></div>
+    ${it.h?`<div class="row"><button class="ghost" id="hb" type="button">Show help</button></div><div class="help hide" id="hp">${esc(it.h)}</div>`:""}
+  </div>`;
+  window.scrollTo(0,0);
+  if(it.h){document.getElementById("hb").onclick=()=>{
+    const hp=document.getElementById("hp");hp.classList.toggle("hide");
+    document.getElementById("hb").textContent=hp.classList.contains("hide")?"Show help":"Hide help";};}
+  if(s.type==="flash"){
+    const fc=document.getElementById("fc");
+    const flip=()=>{document.getElementById("bk").classList.remove("hide");document.getElementById("hint").textContent="";};
+    fc.onclick=flip; fc.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flip();}};
+    document.getElementById("knew").onclick=()=>{ii++;render();};
+    document.getElementById("again").onclick=()=>{flip();if(s.level!=="plus")weak.push({en:it.f,de:it.b});setTimeout(()=>{s.items.push(it);ii++;render();},600);};
+    fc.focus();
+  } else if(s.type==="mc"){
+    answered=false;
+    app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+      if(answered)return; answered=true;
+      const i=+b.dataset.i, ok=(i===it.a);
+      app.querySelectorAll(".opt").forEach((x,j)=>{if(j===it.a)x.classList.add("right");});
+      if(!ok)b.classList.add("wrong");
+      if(!ok && s.level!=="plus")weak.push({en:it.o[it.a],de:it.q});
+      score(ok,s);
+      document.getElementById("fb").innerHTML=
+        `<div class="fb ${ok?"ok":"no"}">${ok?"✓ Correct.":"✗ Not quite. The right answer is: "+esc(it.o[it.a])}${it.e?" "+esc(it.e):""}</div>
+         <div class="row"><button id="nx">Next</button></div>`;
+      document.getElementById("nx").onclick=()=>{ii++;render();};
+      document.getElementById("nx").focus();
+    });
+  } else if(multi){
+    const check=()=>{
+      if(answered)return; answered=true;
+      const values=blankValues(nb,"b");
+      const ok=blankAnswerOk(values,it.a);
+      score(ok,s);
+      blankMarkFields(values,it.a[0],"b");
+      document.getElementById("fb").innerHTML=
+        `<div class="fb ${ok?"ok":"no"}">${ok?"✓ Correct.":"✗ Not quite. Correct: "+blankFilledSentence(it.q,it.a[0])}${it.e?" "+esc(it.e):""}</div>
+         <div class="row"><button id="nx">Next</button></div>`;
+      document.getElementById("chk").disabled=true;
+      document.getElementById("nx").onclick=()=>{ii++;render();};
+      document.getElementById("nx").focus();
+    };
+    answered=false;
+    document.getElementById("chk").onclick=check;
+    for(let i=0;i<nb;i++){
+      const el=document.getElementById("b"+i);
+      el.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault(); if(i<nb-1)document.getElementById("b"+(i+1)).focus(); else check();}});
+    }
+    document.getElementById("b0").focus();
+  } else {
+    const inp=document.getElementById("ans");
+    const check=()=>{
+      if(answered)return; answered=true;
+      const v=norm(inp.value), ok=it.a.some(x=>norm(x)===v);
+      if(!ok && s.level!=="plus")weak.push({en:it.a[0],de:it.q});
+      score(ok,s);
+      document.getElementById("fb").innerHTML=
+        `<div class="fb ${ok?"ok":"no"}">${ok?"✓ Correct.":"✗ Not quite. Correct: "+esc(it.a[0])}${it.e?" "+esc(it.e):""}</div>
+         <div class="row"><button id="nx">Next</button></div>`;
+      document.getElementById("chk").disabled=true; inp.disabled=true;
+      document.getElementById("nx").onclick=()=>{ii++;render();};
+      document.getElementById("nx").focus();
+    };
+    answered=false;
+    document.getElementById("chk").onclick=check;
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter")check();});
+    inp.focus();
+  }
+}
+function score(ok,s){ if(s.level==="plus"){ if(ok)bonus++; } else { total++; if(ok)correct++; } }
+
+function finish(){
+  const k=(()=>{let t=0;sections().forEach(s=>{if(s.type!=="flash"&&s.level!=="plus")t+=s.items.length;});return t;})();
+  const pct=k?correct/k:0;
+
+  if(!DATA.vocabTest){
+    app.innerHTML=`
+    <div class="card">
+      <h2>Well done!</h2>
+      <p class="lead">You got <strong>${correct} out of ${k}</strong> (${Math.round(pct*100)}%)${plus?` and <strong>${bonus}</strong> extra tasks right`:""}.</p>
+      <div class="row">
+        <button class="ghost" id="rs">Start again</button>
+        <button id="rh">Back to overview</button>
+      </div>
+    </div>`;
+    window.scrollTo(0,0);
+    document.getElementById("rs").onclick=start;
+    document.getElementById("rh").onclick=showHome;
+    return;
+  }
+
+  // vocabulary test-prep modules: two different outcomes, plus a "words to review" list
+  const seen={}; const uniqueWeak=[];
+  weak.forEach(w=>{ if(!seen[w.en]){seen[w.en]=true; uniqueWeak.push(w);} });
+  const passed = pct>=0.75;
+  const wordsHtml = uniqueWeak.length
+    ? `<div class="help" style="margin-top:14px">
+         <strong>${passed?"Words to look at again:":"Words to learn before you try again:"}</strong>
+         <ul class="tips">${uniqueWeak.map(w=>`<li><strong>${esc(w.en)}</strong> — ${esc(w.de)}</li>`).join("")}</ul>
+       </div>`
+    : `<p class="sub" style="margin-top:14px">You didn't miss a single word — great job!</p>`;
+
+  if(passed){
+    app.innerHTML=`
+    <div class="card">
+      <h2>✅ Module complete!</h2>
+      <p class="lead">You got <strong>${correct} out of ${k}</strong> (${Math.round(pct*100)}%)${plus?` and <strong>${bonus}</strong> extra tasks right`:""} — that's 75% or more, so this module counts as done.</p>
+      <div class="fb ok">Please take a screenshot of this page now and send it to your teacher.</div>
+      ${wordsHtml}
+      <div class="row">
+        <button class="ghost" id="rs">Start again</button>
+        <button id="rh">Back to overview</button>
+      </div>
+    </div>`;
+  } else {
+    app.innerHTML=`
+    <div class="card">
+      <h2>Keep practising!</h2>
+      <p class="lead">You got <strong>${correct} out of ${k}</strong> (${Math.round(pct*100)}%)${plus?` and <strong>${bonus}</strong> extra tasks right`:""}. You need <strong>75%</strong> to complete this module.</p>
+      <div class="fb no">Not quite there yet — please try again. Look at the words below first, then start again.</div>
+      ${wordsHtml}
+      <div class="row">
+        <button id="rs">Try again</button>
+        <button class="ghost" id="rh">Back to overview</button>
+      </div>
+    </div>`;
+  }
+  window.scrollTo(0,0);
+  document.getElementById("rs").onclick=start;
+  document.getElementById("rh").onclick=showHome;
+}
+
+
+function showHome(){
+  document.getElementById('home').classList.remove('hide');
+  document.getElementById('app').classList.add('hide');
+  document.getElementById('topnav').classList.add('hide');
+  window.scrollTo(0,0);
+}
+function showApp(){
+  document.getElementById('home').classList.add('hide');
+  document.getElementById('app').classList.remove('hide');
+  document.getElementById('topnav').classList.remove('hide');
+  window.scrollTo(0,0);
+}
+function openHA(idx){
+  DATA=MODULES[idx];
+  student=""; plus=false; si=0; ii=0; correct=0; total=0; bonus=0; answered=false;
+  showApp();
+  start();
+}
+
+/* ===================== KA1 Vorbereitung — separate engine, no code/name gate ===================== */
+const KAPREP = {
+  tenses: {
+    basis: [
+      {q:"Yesterday, Ally ___ (write) back to Gillian.", a:["wrote"], h:"simple past — 'yesterday' is a finished time.", hintVisible:true},
+      {q:"Gillian ___ (not / be) happy about the move.", a:["wasn't happy","was not happy"], h:"simple past, negative form of 'be'.", hintVisible:true},
+      {q:"My best friend and I ___ (know) each other since Year 5.", a:["have known"], h:"present perfect — 'since' points from the past until now.", hintVisible:true},
+      {q:"Normally, I ___ (give) advice to my friends.", a:["give"], h:"simple present — a habit ('normally').", hintVisible:true},
+      {q:"Last week, my friend ___ (feel) really sad.", a:["felt"], h:"simple past — 'last week' is finished.", hintVisible:true},
+      {q:"I ___ (never / be) to a boarding school.", a:["have never been","'ve never been"], h:"present perfect — an experience up to now.", hintVisible:true}
+    ],
+    standard: [
+      {q:"Right now Ben is fine, but last month he ___ (argue) with his best friend all the time.", a:["argued"], h:"'last month' is a finished time period."},
+      {q:"I ___ (already / read) the letter twice, and I still don't know what to say.", a:["have already read","'ve already read"], h:"present perfect — relevant right now."},
+      {q:"Usually she doesn't mind being alone, but yesterday she ___ (feel) really lonely.", a:["felt"], h:"'yesterday' — finished time."},
+      {q:"We ___ (be) friends since primary school, but we ___ (have) a big argument last week.", a:["have been … had","'ve been … had"], h:"two gaps: since = present perfect, last week = simple past."},
+      {q:"He ___ (just / send) her a message, but she hasn't replied yet.", a:["has just sent","'s just sent"], h:"present perfect with 'just' — very recent."},
+      {q:"Two years ago, my family ___ (move) to Berlin, and I ___ (make) new friends since then.", a:["moved … have made","moved … 've made"], h:"two gaps: 'two years ago' = simple past, 'since then' = present perfect."}
+    ],
+    plus: [
+      {q:"Find and fix the tense mistake: “My friend have moved to another city last year.”", a:["moved"], h:"A time word from the past ('last year') needs the simple past, not the present perfect."},
+      {q:"Find and fix the tense mistake: “I know her since we were six years old.”", a:["have known","'ve known"], h:"'since' needs the present perfect."},
+      {q:"Find and fix the tense mistake: “She was feeling sad every time we argue.”", a:["feels"], h:"A repeated habit ('every time') needs the simple present, not the past progressive."},
+      {q:"Find and fix the tense mistake: “He has written her a letter yesterday.”", a:["wrote"], h:"'yesterday' is a finished time — use the simple past."},
+      {q:"Find and fix the tense mistake: “They are friends for three years.”", a:["have been"], h:"'for three years' describes a duration up to now — present perfect."}
+    ]
+  },
+  spelling: {
+    basis: [
+      {q:"verlegen, peinlich berührt — 9 letters, starts with e", a:["embarrassed"], h:"Double 'r' AND double 's'.", hintVisible:true},
+      {q:"unrealistisch — 11 letters, starts with un", a:["unrealistic"], h:"un + realistic.", hintVisible:true},
+      {q:"organisieren — 8 letters (UK) or 9 (US), starts with o", a:["organize","organise"], h:"Both spellings are accepted.", hintVisible:true},
+      {q:"Freund/Freundin — 6 letters, starts with fr", a:["friend"], h:"'i' before 'e' here: f-r-i-e-n-d.", hintVisible:true},
+      {q:"weil — 7 letters, starts with be", a:["because"], h:"be + cause.", hintVisible:true},
+      {q:"wissen (Grundform) — 4 letters", a:["know"], h:"Silent 'k' at the start.", hintVisible:true}
+    ],
+    standard: [
+      {q:"Find the misspelled word and write it correctly: “She is very embarassed about the mistake.”", a:["embarrassed"], h:"Count the r's and s's again."},
+      {q:"Find the misspelled word and write it correctly: “I recieved your letter yesterday.”", a:["received"], h:"'i' before 'e' except after 'c'."},
+      {q:"Find the misspelled word and write it correctly: “He allways gives good advice.”", a:["always"], h:"Only one 'l' in the middle."},
+      {q:"Find the misspelled word and write it correctly: “Thats not a realistic plan.”", a:["That's"], h:"Missing apostrophe: that + is."},
+      {q:"Find the misspelled word and write it correctly: “Their going to the concert together.”", a:["They're"], h:"they + are, not the possessive 'their'."},
+      {q:"Find the misspelled word and write it correctly: “I definately think you should talk to her.”", a:["definitely"], h:"definite + ly — no 'a' in the middle."}
+    ],
+    plus: [
+      {q:"This paragraph has 5 spelling mistakes. Find the word that should be “grateful”.", a:["grateful"], h:"Not 'greatful' — think of 'grate' + 'ful'.", s:"“Dear Sam, I'm really greatful that you always give me such good advise. Yesterday I recieved a letter from my cousin and she said something similiar to what you told me. I think your totally right about this.”"},
+      {q:"Same paragraph — find the word that should be “advice” (the noun, not the verb).", a:["advice"], h:"'advice' is the noun (uncountable, no plural), 'advise' is the verb.", s:"“Dear Sam, I'm really greatful that you always give me such good advise. Yesterday I recieved a letter from my cousin and she said something similiar to what you told me. I think your totally right about this.”"},
+      {q:"Same paragraph — find the word that should be “received”.", a:["received"], h:"'i' before 'e' except after 'c'.", s:"“Dear Sam, I'm really greatful that you always give me such good advise. Yesterday I recieved a letter from my cousin and she said something similiar to what you told me. I think your totally right about this.”"},
+      {q:"Same paragraph — find the word that should be “similar”.", a:["similar"], h:"Only one 'i' in the middle: s-i-m-i-l-a-r.", s:"“Dear Sam, I'm really greatful that you always give me such good advise. Yesterday I recieved a letter from my cousin and she said something similiar to what you told me. I think your totally right about this.”"},
+      {q:"Same paragraph — find the word that should be “you're”.", a:["you're"], h:"you + are, not the possessive 'your'.", s:"“Dear Sam, I'm really greatful that you always give me such good advise. Yesterday I recieved a letter from my cousin and she said something similiar to what you told me. I think your totally right about this.”"}
+    ]
+  },
+  letter: {
+    scenario: "Jordan writes to a problem page:\n\n“My best friend Priya has started hanging out with a new group at lunchtime. We used to sit together every day, but now I usually sit alone. I don't want to seem jealous, but I really miss her. What should I do? – Jordan”\n\nWrite a reply. Give Jordan advice and explain your reasons.",
+    tiers: {
+      basis: {label:"Support", prefill:
+`Dear Jordan,
+
+I'm sorry to hear that you ___________.
+I can understand why you feel ___________.
+
+I think you should ___________ because ___________.
+Another idea: you could ___________.
+
+It's not easy, but ___________.
+
+Good luck!
+Yours,
+___________`},
+      standard: {label:"Standard", bullets:[
+        "Dear Jordan, (greeting)",
+        "Show in one sentence that you understand how Jordan feels.",
+        "Give at least 2 pieces of advice – use 'because' to explain them.",
+        "An encouraging closing sentence.",
+        "Good luck! Yours, … (closing + signature)"
+      ]},
+      plus: {label:"Challenge", constraint:
+        "Write your reply to Jordan. Use at least one conditional sentence (If I were you, …) and think about what Jordan could say if Priya's explanation doesn't feel fair — address that too."}
+    },
+    phraseBank: [
+      "I can understand why you feel …", "You could …", "Perhaps it would be a good idea to …",
+      "Think about what you can do to …", "You should really try to …", "If I were you, I would …",
+      "Don't give up!", "Good luck!"
+    ],
+    model: `Dear Jordan,
+
+I'm really sorry to hear that you're feeling left out. I can understand why you miss sitting with Priya every day.
+
+I think you should talk to her honestly and tell her how you feel, because she might not even know that you feel lonely. Another idea: you could ask if you can sometimes join her new group at lunchtime, so you get to know the other people too.
+
+It's not easy when a friendship changes, but that doesn't mean Priya doesn't care about you anymore.
+
+Good luck!
+Yours,
+Sam`,
+    checklist: [
+      "A suitable greeting (Dear Jordan,)",
+      "First sentence shows I understand how Jordan feels",
+      "At least 2 pieces of advice, each with a reason ('because …')",
+      "Used phrases from Module 2 (could, should, If I were you, …)",
+      "An encouraging closing sentence",
+      "A suitable closing + signature (Good luck! Yours, …)",
+      "Spelling checked (see the spelling tasks above)",
+      "Tenses correct (see the tenses tasks above, or Module 0)"
+    ],
+    mistakes: [
+      {wrong:"You should to talk to her.", right:"You should talk to her.", note:"No 'to' after a modal verb (should, could, must).", ref:"Module 2 – Asking and giving advice"},
+      {wrong:"You could talk to her.", right:"You could talk to her because she might not know how you feel.", note:"Advice without a reason feels incomplete — always add 'because'.", ref:"Module 2 – Asking and giving advice"},
+      {wrong:"Hey Jordan, … cya", right:"Dear Jordan, … Good luck! Yours, …", note:"A greeting and a closing are often missing, or too informal for the text type 'letter'.", ref:"Module 3 – Letter structure"},
+      {wrong:"Im sorry, dont worry", right:"I'm sorry, don't worry", note:"The apostrophe in contractions is often forgotten (I'm, don't, it's, you're).", ref:"the spelling tasks above in this chapter"},
+      {wrong:"She is feeling sad since two weeks.", right:"She has been feeling sad for two weeks.", note:"'since' + present perfect only with a point in time (since Monday); 'for' + a duration (for two weeks).", ref:"the tenses tasks above, or Module 0"}
+    ]
+  }
+};
+
+let ka_tier="", ka_section="", ka_idx=0, ka_correct=0, ka_total=0, ka_answered=false, ka_showHint=false;
+let ka_r_idx=0, ka_r_answered=false, ka_textOpen=true, ka_r_phase="statement";
+
+function kaEsc(s){return String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+function kaNorm(s){return s.toLowerCase().replace(/[.,!?;:]/g,"").replace(/\s+/g," ").trim();}
+
+function openKA(){
+  showApp();
+  ka_tier=""; ka_section=""; ka_idx=0; ka_correct=0; ka_total=0;
+  kaTierPicker();
+}
+
+function kaTierPicker(){
+  const app=document.getElementById("app");
+  app.innerHTML=`
+  <div class="card">
+    <h2>Class Test 1 – get ready</h2>
+    <p class="lead">Extra practice for your first class test (reading + a letter of advice). This is <strong>not</strong> the class test itself and does not use the same story — it trains the same skills with a new situation. Solutions and tips are included, so you can check your own work.</p>
+    <p class="lead">Choose the track that fits you best today. You can change it any time.</p>
+    <div class="tierpick">
+      <button class="tiercard tier-basis" data-t="basis">
+        <span class="tiericon">🟢</span><span class="tiername">Support</span>
+        <span class="tierdesc">More help: sentence starters, word banks, a glossary for the reading text, a letter template to fill in.</span>
+      </button>
+      <button class="tiercard tier-standard" data-t="standard">
+        <span class="tiericon">🟡</span><span class="tiername">Standard</span>
+        <span class="tierdesc">A structure guide, hints on click, a bullet-point plan for your letter.</span>
+      </button>
+      <button class="tiercard tier-plus" data-t="plus">
+        <span class="tiericon">🟠</span><span class="tiername">Challenge</span>
+        <span class="tierdesc">Harder sentences, error-correction, reading questions that ask for evidence from the text, a free letter with an extra challenge.</span>
+      </button>
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
+  app.querySelectorAll(".tiercard").forEach(b=>b.onclick=()=>{
+    ka_tier=b.dataset.t; ka_section="tenses"; ka_idx=0; ka_r_idx=0; kaRenderItem();
+  });
+}
+
+function kaTopBar(sectionLabel){
+  const tierNames={basis:"🟢 Support",standard:"🟡 Standard",plus:"🟠 Challenge"};
+  return `<div class="kabar">
+    <span class="kabar-tier">${tierNames[ka_tier]}</span>
+    <span class="kabar-sec">${kaEsc(sectionLabel)}</span>
+    <a href="#" id="kaSwitch" class="backlink small">🔁 Change track</a>
+  </div>`;
+}
+function kaWireSwitch(){
+  const el=document.getElementById("kaSwitch");
+  if(el)el.onclick=(e)=>{e.preventDefault();kaTierPicker();};
+}
+
+function kaItems(){return KAPREP[ka_section][ka_tier];}
+
+function kaRenderItem(){
+  const items=kaItems();
+  if(ka_idx>=items.length){
+    if(ka_section==="tenses"){ka_section="spelling";ka_idx=0;return kaRenderItem();}
+    if(ka_section==="spelling"){return kaReadingStart();}
+  }
+  const it=items[ka_idx];
+  const label = ka_section==="tenses" ? "Tenses" : "Spelling";
+  const n=items.length;
+  const multi = isMultiBlank(it);
+  const nb = multi ? blanksOf(it.q) : 0;
+  const app=document.getElementById("app");
+  const showHint = it.hintVisible || ka_showHint;
+  app.innerHTML=`
+  ${kaTopBar(label)}
+  <div class="card">
+    <div class="meta"><span>${label}</span><span>${ka_idx+1} / ${n}</span></div>
+    <div class="bar"><i style="width:${Math.round(ka_idx/n*100)}%"></i></div>
+    ${it.s?`<div class="sub" style="font-style:italic;margin-bottom:10px">${kaEsc(it.s)}</div>`:""}
+    <div class="prompt" style="font-size:1.1rem">${multi?blankPromptHTML(it.q,"kb"):kaEsc(it.q)}</div>
+    ${showHint?`<div class="help" style="margin-top:8px">${kaEsc(it.h)}</div>`:
+      `<div class="row"><button class="ghost" id="kaHintBtn" type="button">Show help</button></div>`}
+    ${multi?"":`<label for="kaAns" class="sub" style="font-weight:600;color:var(--ink);margin-top:12px">Type your answer</label>
+    <input type="text" id="kaAns" autocomplete="off" autocapitalize="off" spellcheck="false">`}
+    <div class="row"><button id="kaChk">Check</button></div>
+    <div id="kaFb"></div>
+  </div>`;
+  window.scrollTo(0,0);
+  kaWireSwitch();
+  const hb=document.getElementById("kaHintBtn");
+  if(hb)hb.onclick=()=>{ka_showHint=true;kaRenderItem();};
+  ka_showHint=false;
+  ka_answered=false;
+  const reportResult=(ok)=>{
+    ka_total++; if(ok)ka_correct++;
+    document.getElementById("kaFb").innerHTML=
+      `<div class="fb ${ok?"ok":"no"}">${ok?"✓ Correct.":"✗ Not quite. Correct: "+(multi?blankFilledSentence(it.q,it.a[0]):kaEsc(it.a[0]))}</div>
+       <div class="row"><button id="kaNx">Next</button></div>`;
+    document.getElementById("kaChk").disabled=true;
+    document.getElementById("kaNx").onclick=()=>{ka_idx++;kaRenderItem();};
+    document.getElementById("kaNx").focus();
+  };
+  if(multi){
+    const check=()=>{
+      if(ka_answered)return; ka_answered=true;
+      const values=blankValues(nb,"kb");
+      const ok=blankAnswerOk(values,it.a);
+      blankMarkFields(values,it.a[0],"kb");
+      reportResult(ok);
+    };
+    document.getElementById("kaChk").onclick=check;
+    for(let i=0;i<nb;i++){
+      const el=document.getElementById("kb"+i);
+      el.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault(); if(i<nb-1)document.getElementById("kb"+(i+1)).focus(); else check();}});
+    }
+    document.getElementById("kb0").focus();
+  } else {
+    const inp=document.getElementById("kaAns");
+    const check=()=>{
+      if(ka_answered)return; ka_answered=true;
+      const v=kaNorm(inp.value);
+      const ok=it.a.some(x=>kaNorm(x)===v);
+      inp.disabled=true;
+      reportResult(ok);
+    };
+    document.getElementById("kaChk").onclick=check;
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter")check();});
+    inp.focus();
+  }
+}
+
+/* ---- KA prep: reading (new text, own characters — not the textbook, not the class test) ---- */
+const READING = {
+  glossary: [
+    {w:"enormous", d:"riesig, gewaltig groß"},
+    {w:"pencil case", d:"Federmäppchen"},
+    {w:"to try out for (a team)", d:"vorspielen für / sich um einen Platz in (einem Team) bewerben"},
+    {w:"compared to", d:"verglichen mit, im Vergleich zu"},
+    {w:"for the first time", d:"zum ersten Mal"}
+  ],
+  text: `Three weeks ago, my family moved from a small village near Leeds to Manchester. I go to a new school now, and on my first day I felt really nervous. I didn't know anyone, and the building seemed enormous compared to my old school.
+
+In the first lesson, a boy called Leo sat down next to me. I had forgotten my pencil case, so he lent me a pen without even asking why. That small thing made the whole day much easier.
+
+At lunchtime, my neighbour Aisha – she's in Year 9 – saw me sitting alone and asked if I wanted to try out for the school football team. I'm not really a football fan, but I said yes anyway, just to meet more people. Now I train twice a week, and I've already made three new friends there.
+
+I still miss my grandmother's garden and our old kitchen, and I write to my best friend Mia every single weekend. Next month our class is going on a trip to a castle in Wales, and for the first time since we moved, I'm actually looking forward to something at school.`,
+  statements: [
+    {q:"Zara moved from Manchester to a small village near Leeds.", isTrue:false, correction:"Zara moved from a small village near Leeds to Manchester."},
+    {q:"On her first day, Zara felt confident and happy.", isTrue:false, correction:"On her first day, Zara felt really nervous."},
+    {q:"Leo lent Zara a pen because she had forgotten her pencil case.", isTrue:true, correction:""},
+    {q:"Zara joined the football team because she has always loved football.", isTrue:false, correction:"Zara joined the football team because her neighbour Aisha asked her, and she wanted to meet more people."},
+    {q:"Zara writes to her best friend Mia every weekend.", isTrue:true, correction:""}
+  ],
+  mc: [
+    {q:"Why did Zara feel nervous on her first day?", o:["She had forgotten her homework.","The school felt enormous and unfamiliar.","She was late for the first lesson.","Her teacher was very strict."], a:1},
+    {q:"What did Leo do for Zara?", o:["He gave her his phone number.","He lent her a pen.","He walked her home.","He invited her to his house."], a:1},
+    {q:"Why did Zara agree to try out for the football team?", o:["She is a big football fan.","Her parents made her join.","Aisha invited her and she wanted to meet people.","It was compulsory at her new school."], a:2},
+    {q:"What does Zara miss most about her old home?", o:["Her old school building","Her grandmother's garden and the old kitchen","Her football team","Her bedroom"], a:1},
+    {q:"What is Zara looking forward to?", o:["Seeing Mia again next week","A school trip to a castle in Wales","Her birthday party","The summer holidays"], a:1}
+  ],
+  open: [
+    {q:"Do you think Zara made a good decision to join the football team, even though she isn't really a football fan? Give a reason.",
+     starter:"I think it was a good / not a good decision because …",
+     points:["A clear opinion (good decision / not a good decision)","At least one reason","A reference to the text (e.g. meeting new people)"]},
+    {q:"Imagine you are Leo. Write one or two sentences you might say to Zara on her first day to make her feel welcome.",
+     starter:"Hi, I'm Leo. …",
+     points:["A friendly, welcoming tone","Something helpful or encouraging","Correct sentence structure"]},
+    {q:"What else could Zara do to feel more at home in Manchester? Give at least one idea of your own.",
+     starter:"She could …",
+     points:["At least one realistic idea (not already in the text)","A short explanation of why it could help"]}
+  ]
+};
+
+function kaTextPanel(){
+  return `<div class="card">
+    <button class="ghost" id="kaTextToggle" type="button" style="width:100%;text-align:left">${ka_textOpen?"📖 Hide the text":"📖 Show the text"}</button>
+    ${ka_textOpen?`<div class="readtext" style="margin-top:10px">${kaEsc(READING.text)}</div>`:""}
+  </div>`;
+}
+function kaWireTextToggle(){
+  const b=document.getElementById("kaTextToggle");
+  if(b)b.onclick=()=>{
+    ka_textOpen=!ka_textOpen;
+    if(ka_r_phase==="mc")kaReadingMC();
+    else if(ka_r_phase==="open")kaReadingOpen();
+    else kaReadingStatement();
+  };
+}
+
+function kaReadingStart(){
+  const app=document.getElementById("app");
+  const showGlossary = ka_tier==="basis";
+  ka_textOpen=true;
+  app.innerHTML=`
+  ${kaTopBar("Reading")}
+  <div class="card">
+    <h2>Reading: My New Life in Manchester</h2>
+    <p class="lead">A new text for a new situation — not from your textbook, and not the text from the class test. Read it carefully — you can look back at it while you answer the questions.</p>
+    <div class="readtext">${kaEsc(READING.text)}</div>
+    ${showGlossary?`<div class="help"><strong>Glossary</strong><ul class="tips">${READING.glossary.map(g=>`<li><strong>${kaEsc(g.w)}</strong> – ${kaEsc(g.d)}</li>`).join("")}</ul></div>`:""}
+    <div class="row"><button id="kaRStart">Start the tasks</button></div>
+  </div>`;
+  window.scrollTo(0,0);
+  kaWireSwitch();
+  document.getElementById("kaRStart").onclick=()=>{ka_r_idx=0;kaReadingStatement();};
+}
+
+function kaReadingStatement(){
+  ka_r_phase="statement";
+  const items=READING.statements;
+  if(ka_r_idx>=items.length){ka_r_idx=0;return kaReadingMC();}
+  const it=items[ka_r_idx];
+  const app=document.getElementById("app");
+  app.innerHTML=`
+  ${kaTopBar("Reading: statements")}
+  ${kaTextPanel()}
+  <div class="card">
+    <div class="meta"><span>Statement</span><span>${ka_r_idx+1} / ${items.length}</span></div>
+    <div class="bar"><i style="width:${Math.round(ka_r_idx/items.length*100)}%"></i></div>
+    <h2 style="margin-bottom:2px">True or false? If it's false, correct it using information from the text.</h2>
+    <div class="prompt" style="font-size:1.1rem">${kaEsc(it.q)}</div>
+    <div class="opts"><button class="opt" data-v="true">True</button><button class="opt" data-v="false">False</button></div>
+    <div id="kaFb"></div>
+  </div>`;
+  window.scrollTo(0,0);
+  kaWireSwitch(); kaWireTextToggle();
+  ka_r_answered=false;
+  app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    if(ka_r_answered)return; ka_r_answered=true;
+    const picked=b.dataset.v==="true", ok=(picked===it.isTrue);
+    ka_total++; if(ok)ka_correct++;
+    app.querySelectorAll(".opt").forEach(x=>{if((x.dataset.v==="true")===it.isTrue)x.classList.add("right");});
+    if(!ok)b.classList.add("wrong");
+    let fb=`<div class="fb ${ok?"ok":"no"}">${ok?"✓ Correct.":"✗ Not quite."} This statement is ${it.isTrue?"true":"false"}.</div>`;
+    if(!it.isTrue){
+      fb+=`<label for="kaCorr" class="sub" style="font-weight:600;color:var(--ink);margin-top:10px">Correct the sentence using information from the text</label>
+        <input type="text" id="kaCorr" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <div class="row"><button class="ghost" id="kaCheckCorr" type="button">Check my correction</button></div>
+        <div id="kaCorrFb"></div>`;
+    }
+    fb+=`<div class="row"><button id="kaNx">Next</button></div>`;
+    document.getElementById("kaFb").innerHTML=fb;
+    const ccb=document.getElementById("kaCheckCorr");
+    if(ccb)ccb.onclick=()=>{
+      const exact = kaNorm(document.getElementById("kaCorr").value)===kaNorm(it.correction);
+      document.getElementById("kaCorrFb").innerHTML = exact
+        ? `<div class="fb ok">✓ That matches the model correction.</div>`
+        : `<div class="help">Not an exact match to the model — that's OK if your sentence says the same thing. Compare:<br><strong>${kaEsc(it.correction)}</strong></div>`;
+    };
+    document.getElementById("kaNx").onclick=()=>{ka_r_idx++;kaReadingStatement();};
+    document.getElementById("kaNx").focus();
+  });
+}
+
+function kaReadingMC(){
+  ka_r_phase="mc";
+  const items=READING.mc;
+  if(ka_r_idx>=items.length){ka_r_idx=0;return kaReadingOpen();}
+  const it=items[ka_r_idx];
+  const app=document.getElementById("app");
+  app.innerHTML=`
+  ${kaTopBar("Reading: questions")}
+  ${kaTextPanel()}
+  <div class="card">
+    <div class="meta"><span>Question</span><span>${ka_r_idx+1} / ${items.length}</span></div>
+    <div class="bar"><i style="width:${Math.round(ka_r_idx/items.length*100)}%"></i></div>
+    <div class="prompt" style="font-size:1.1rem">${kaEsc(it.q)}</div>
+    <div class="opts">${it.o.map((o,i)=>`<button class="opt" data-i="${i}">${kaEsc(o)}</button>`).join("")}</div>
+    <div id="kaFb"></div>
+  </div>`;
+  window.scrollTo(0,0);
+  kaWireSwitch(); kaWireTextToggle();
+  ka_r_answered=false;
+  app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    if(ka_r_answered)return; ka_r_answered=true;
+    const i=+b.dataset.i, ok=(i===it.a);
+    ka_total++; if(ok)ka_correct++;
+    app.querySelectorAll(".opt").forEach((x,j)=>{if(j===it.a)x.classList.add("right");});
+    if(!ok)b.classList.add("wrong");
+    document.getElementById("kaFb").innerHTML=
+      `<div class="fb ${ok?"ok":"no"}">${ok?"✓ Correct.":"✗ Not quite. The right answer is: "+kaEsc(it.o[it.a])}</div>
+       <div class="row"><button id="kaNx">Next</button></div>`;
+    document.getElementById("kaNx").onclick=()=>{ka_r_idx++;kaReadingMC();};
+    document.getElementById("kaNx").focus();
+  });
+}
+
+function kaReadingOpen(){
+  ka_r_phase="open";
+  const items=READING.open;
+  if(ka_r_idx>=items.length){return kaLetterStart();}
+  const it=items[ka_r_idx];
+  const app=document.getElementById("app");
+  const placeholder=ka_tier==="basis"?it.starter:"";
+  const extra=ka_tier==="plus"?" Support your answer with an example from the text.":"";
+  app.innerHTML=`
+  ${kaTopBar("Reading: your answer")}
+  ${kaTextPanel()}
+  <div class="card">
+    <div class="meta"><span>Open question</span><span>${ka_r_idx+1} / ${items.length}</span></div>
+    <div class="bar"><i style="width:${Math.round(ka_r_idx/items.length*100)}%"></i></div>
+    <div class="prompt" style="font-size:1.1rem">${kaEsc(it.q)}${kaEsc(extra)}</div>
+    <label for="kaOpen" class="sub" style="font-weight:600;color:var(--ink);margin-top:10px">Write your answer in English</label>
+    <textarea id="kaOpen" rows="4" placeholder="${kaEsc(placeholder)}"></textarea>
+    <div class="row"><button id="kaOpenReveal" class="ghost" type="button">Show what a good answer includes</button></div>
+    <div class="help hide" id="kaOpenBox"><strong>A good answer includes:</strong><ul class="tips">${it.points.map(p=>`<li>${kaEsc(p)}</li>`).join("")}</ul></div>
+    <div class="row"><button id="kaNx">Next</button></div>
+  </div>`;
+  window.scrollTo(0,0);
+  kaWireSwitch(); kaWireTextToggle();
+  document.getElementById("kaOpenReveal").onclick=()=>{document.getElementById("kaOpenBox").classList.remove("hide");};
+  document.getElementById("kaNx").onclick=()=>{ka_r_idx++;kaReadingOpen();};
+}
+
+function kaLetterStart(){
+  const app=document.getElementById("app");
+  const t=KAPREP.letter.tiers[ka_tier];
+  let scaffold="";
+  if(ka_tier==="basis"){
+    scaffold=`<label for="kaLetter" class="sub" style="font-weight:600;color:var(--ink)">Fill in the gaps — write your full letter</label>
+      <textarea id="kaLetter" rows="12">${kaEsc(t.prefill)}</textarea>`;
+  } else if(ka_tier==="standard"){
+    scaffold=`<div class="help"><strong>Your structure</strong><ul class="tips">${t.bullets.map(b=>`<li>${kaEsc(b)}</li>`).join("")}</ul></div>
+      <label for="kaLetter" class="sub" style="font-weight:600;color:var(--ink);margin-top:10px">Write your letter here</label>
+      <textarea id="kaLetter" rows="12" placeholder="Dear Jordan, ..."></textarea>`;
+  } else {
+    scaffold=`<div class="help"><strong>Extra challenge</strong><p style="margin:4px 0 0">${kaEsc(t.constraint)}</p></div>
+      <label for="kaLetter" class="sub" style="font-weight:600;color:var(--ink);margin-top:10px">Write your letter here</label>
+      <textarea id="kaLetter" rows="12" placeholder="Dear Jordan, ..."></textarea>`;
+  }
+  app.innerHTML=`
+  ${kaTopBar("Letter")}
+  <div class="card">
+    <h2>Writing task</h2>
+    <p class="lead" style="white-space:pre-line">${kaEsc(KAPREP.letter.scenario)}</p>
+    <div class="row"><button class="ghost" id="kaPhraseBtn" type="button">💬 Show useful phrases</button></div>
+    <div class="help hide" id="kaPhrases"><ul class="tips">${KAPREP.letter.phraseBank.map(p=>`<li>${kaEsc(p)}</li>`).join("")}</ul></div>
+    ${scaffold}
+    <div class="row"><button id="kaReveal">I'm done – show model answer</button></div>
+  </div>`;
+  window.scrollTo(0,0);
+  kaWireSwitch();
+  document.getElementById("kaPhraseBtn").onclick=()=>{
+    const p=document.getElementById("kaPhrases");p.classList.toggle("hide");
+    document.getElementById("kaPhraseBtn").textContent=p.classList.contains("hide")?"💬 Show useful phrases":"💬 Hide useful phrases";
+  };
+  document.getElementById("kaReveal").onclick=kaLetterReveal;
+}
+
+function kaLetterReveal(){
+  const app=document.getElementById("app");
+  const L=KAPREP.letter;
+  app.innerHTML=`
+  ${kaTopBar("Letter")}
+  <div class="card">
+    <h2>Model answer</h2>
+    <p class="lead">This is one possible answer for this practice situation — not a text to memorise, and not what the real class test will ask.</p>
+    <div class="modelbox">${kaEsc(L.model).replace(/\n/g,"<br>")}</div>
+  </div>
+  <div class="card">
+    <h2>Self-check</h2>
+    <ul class="tips checklist">${L.checklist.map(c=>`<li>☐ ${kaEsc(c)}</li>`).join("")}</ul>
+  </div>
+  <div class="card">
+    <h2>Common mistakes</h2>
+    ${L.mistakes.map(m=>`
+      <div class="mistake">
+        <div class="mwrong">✗ ${kaEsc(m.wrong)}</div>
+        <div class="mright">✓ ${kaEsc(m.right)}</div>
+        <div class="mnote">${kaEsc(m.note)} <span class="mref">→ ${kaEsc(m.ref)}</span></div>
+      </div>`).join("")}
+  </div>
+  <div class="row"><button id="kaDone">Finish</button></div>`;
+  window.scrollTo(0,0);
+  kaWireSwitch();
+  document.getElementById("kaDone").onclick=kaFinish;
+}
+
+function kaFinish(){
+  const app=document.getElementById("app");
+  app.innerHTML=`
+  <div class="card">
+    <h2>Well done!</h2>
+    <p class="lead">You got <strong>${ka_correct} / ${ka_total}</strong> right in the tenses, spelling and reading tasks (${KAPREP.letter.tiers[ka_tier].label} track).</p>
+    <div class="help">
+      <strong>Still shaky on something?</strong>
+      <ul class="tips">
+        <li>Tenses → try Module 0 (Revision: tenses) again.</li>
+        <li>Understanding a text → read it twice (once for the general idea, once for details) and use the glossary in the Support track.</li>
+        <li>Advice phrases → try Module 2 (Asking and giving advice) again.</li>
+        <li>Letter structure → try Module 3 (Get ready for test 2 and your letter) again.</li>
+      </ul>
+    </div>
+    <p class="lead" style="margin-top:14px">This was practice — there is no code for this chapter. It does not have to be shown to your teacher.</p>
+    <div class="row">
+      <button class="ghost" id="kaAgain">Try another track</button>
+      <button id="kaHome">Back to overview</button>
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
+  document.getElementById("kaAgain").onclick=kaTierPicker;
+  document.getElementById("kaHome").onclick=showHome;
+}
+
+
+document.querySelectorAll('.modcard[data-m]').forEach(b=>{
+  b.onclick=()=>openHA(parseInt(b.dataset.m,10));
+});
+document.getElementById('openKA').onclick=openKA;
+document.getElementById('topnavBack').onclick=(e)=>{e.preventDefault();showHome();};
+</script>
+</body>
+</html>
